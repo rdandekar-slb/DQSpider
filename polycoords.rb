@@ -25,6 +25,10 @@ class Segment
     def get_Slope_of_Line()
         return ((p2.y - p1.y) / (p2.x - p1.x))
     end
+
+    def get_midPoint()
+        return Point.new((p1.x+p2.x)/2,(p1.y+p2.y)/2)
+    end
 end
 
 
@@ -143,7 +147,7 @@ end
 #     puts
 # end
 
-puts "-----------------------------------------------------"
-x=DQSpiderGeometry.new(180,6,Point.new(200,200))
-print x.get_vertices_for_svg+"\n"
-puts "-----------------------------------------------------"
+# puts "-----------------------------------------------------"
+# x=DQSpiderGeometry.new(180,6,Point.new(200,200))
+# print x.get_vertices_for_svg+"\n"
+# puts "-----------------------------------------------------"
