@@ -1,4 +1,5 @@
 require 'sinatra'
+require './polycoords.rb'
 
 Choices ={
     'HAM' => 'Hamburger', 'PIZ' => 'Pizza', 'CUR' => 'Curry', 'NOO' => 'Noodles'
@@ -20,6 +21,8 @@ end
 
 get '/dg1' do
     @title = 'Decision Gate 1'
+    @spider = DQSpiderGeometry.new(180,6,Point.new(200,200))
+    # print x.get_vertices_for_svg+"\n"
     erb :dg1
 end
 

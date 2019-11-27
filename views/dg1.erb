@@ -11,12 +11,12 @@
         </div>
         <div class="col" style="vertical-align: middle;"> 
             <form action="dg1" method="POST">
-                <input type="range" id="af" value="50"><br>
-                <input type="range" id="cda" value="50"><br>
-                <input type="range" id="mi" value="50"><br>
-                <input type="range" id="cdi" value="50"><br>
-                <input type="range" id="cdi" value="50"><br>
-                <input type="range" id="ca" value="50"><br>            
+                <input type="range" id="af" value="50" onchange="redraw_polyline()"><br>
+                <input type="range" id="cda" value="50" onchange="redraw_polyline()"><br>
+                <input type="range" id="mi" value="50" onchange="redraw_polyline()"><br>
+                <input type="range" id="cdi" value="50" onchange="redraw_polyline()"><br>
+                <input type="range" id="lr" value="50" onchange="redraw_polyline()"><br>
+                <input type="range" id="ca" value="50" onchange="redraw_polyline()"><br>            
                 <button type="submit" class="btn btn-primary">Vote!</button>
             </form>
         </div>
@@ -25,16 +25,34 @@
                 <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
                 <g class="layer">
                  <title>Layer 1</title>
-                 <polygon stroke-width="3" stroke="#000000" points="380,200 290,355 111,355 20,200 110,45 289,45" fill="none" id="svg_2"/>
+                 <polygon stroke-width="3" stroke="#000000" points= <%= @spider.get_vertices_for_svg %> fill="none" id="svg_2"/>
                  <line fill="none" stroke="#000000" stroke-width="3" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" x1="380" y1="200" x2="20" y2="200" id="svg_1"/>
                  <line fill="none" stroke="#000000" stroke-width="3" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" x1="290" y1="355" x2="110" y2="45" id="svg_3"/>
                  <line fill="none" stroke="#000000" stroke-width="3" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" x1="111" y1="355" x2="289" y2="45" id="svg_4"/>
                 </g>
                 <g class="layer">
                  <title>Layer 2</title>
+                 <!--
                  <path fill="none" stroke="#f20909" stroke-width="3" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" d="m 251,100 l 37,90 l -58,48 l-77,34 l-46,-82 l48,-79 l96,-11z" id="svg_6"/>
+                 -->
+                 <polyline points="263, 200 240, 269 130, 320 155, 200 170, 148 208, 184 263, 200"  style="fill:none;stroke:red;stroke-width:5" id="polyline_1"/>
                 </g>
                </svg>
         </div>
     </div>
 </div>
+
+<script>
+    function redraw_polyline(){
+        var p = document.getElementById("polyline_1").getAttribute("points");
+        var c
+        var af = parseInt(document.getElementById("af").value)/100;
+        var cda = parseInt(document.getElementById("cda").value)/100;
+        var cdi = parseInt(document.getElementById("cdi").value)/100;
+        var mi = parseInt(document.getElementById("mi").value)/100;
+        var lr = parseInt(document.getElementById("lr").value)/100;
+        var ca = parseInt(document.getElementById("ca").value)/100;
+        console.log(af,cda,cdi,mi,lr,ca);
+        console.log(p);        
+    }
+</script>
