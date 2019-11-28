@@ -26,7 +26,7 @@
                 <g class="layer">
                  <title>Layer 1</title>
                  <polygon stroke-width="3" stroke="#000000" points= <%= @spider.get_vertices_for_svg %> fill="none" id="spider"/>
-                 <line fill="none" stroke="#000000" stroke-width="3" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" x1="380" y1="200" x2="20" y2="200" id="svg_1"/>
+                 <line fill="none" stroke="#000000" stroke-width="3" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" x1= <%= @lines[0].p1.x %> y1= <%= @lines[0].p1.y %> x2= <%= @lines[0].p2.x %> y2= <%= @lines[0].p2.y %> id="svg_1"/>
                  <line fill="none" stroke="#000000" stroke-width="3" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" x1="290" y1="355" x2="110" y2="45" id="svg_3"/>
                  <line fill="none" stroke="#000000" stroke-width="3" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" x1="111" y1="355" x2="289" y2="45" id="svg_4"/>
                  <line fill="none" stroke="#000000" stroke-width="13" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" x1="200" y1="200" x2="200" y2="200" id="centre"/>                 
