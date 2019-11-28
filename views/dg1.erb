@@ -2,7 +2,7 @@
 <div class="container-fluid" style="border:1px solid black;">
     <div class="row" >
         <div class="col" style="vertical-align: middle;">
-                Appropriate Frame:<br>
+                Appropriate Frame (AF):<br>
                 Creative Doable Alternatives:<br>
                 Meaningful Information:<br>
                 Clear Decision Criteria:<br>
@@ -30,6 +30,7 @@
                  <line fill="none" stroke="#000000" stroke-width="3" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" x1="290" y1="355" x2="110" y2="45" id="svg_3"/>
                  <line fill="none" stroke="#000000" stroke-width="3" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" x1="111" y1="355" x2="289" y2="45" id="svg_4"/>
                  <line fill="none" stroke="#000000" stroke-width="13" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" x1="200" y1="200" x2="200" y2="200" id="centre"/>                 
+                 <text x="385" y="200">AF</text>
                 </g>
                 <g class="layer">
                  <title>Layer 2</title>
@@ -57,26 +58,18 @@
         dividers.push(parseInt(document.getElementById("lr").value)/100);
         dividers.push(parseInt(document.getElementById("ca").value)/100);
         
-        /*
-        var af = parseInt(document.getElementById("af").value)/100;
-        var cda = parseInt(document.getElementById("cda").value)/100;
-        var cdi = parseInt(document.getElementById("cdi").value)/100;
-        var mi = parseInt(document.getElementById("mi").value)/100;
-        var lr = parseInt(document.getElementById("lr").value)/100;
-        var ca = parseInt(document.getElementById("ca").value)/100;
-        */
         var s = "" ;
         for (i=0;i<vote_spider_points.length-1;i++){
             /*console.log(vote_spider_points[i],dividers[i]);*/
             p=vote_spider_points[i].split(",");
             new_p_x=parseInt(p[0])*dividers[i] + cx*(1-dividers[i]);
             new_p_y=parseInt(p[1])*dividers[i] + cy*(1-dividers[i]);
-            console.log(new_p_x,new_p_y);
+            /*console.log(new_p_x,new_p_y);*/
             s += new_p_x+','+new_p_y+' ';
         }
-        
-        console.log(s);
         vote_spider.setAttribute("points",s);
+
+        /*console.log(s);*/
         /*console.log(af,cda,cdi,mi,lr,ca);*/
         /*console.log(vote_spider_points);*/
         /*console.log(document.getElementById("centre").getAttribute("x1"))  */

@@ -21,8 +21,8 @@ end
 
 get '/dg1' do
     @title = 'Decision Gate 1'
-    @spider = DQSpiderGeometry.new(180,6,Point.new(200,200))
-    @vote_spider = DQSpiderGeometry.new(90,6,Point.new(200,200))
+    @spider = DQSpiderGeometry.new(170,6,Point.new(200,200))
+    @vote_spider = DQSpiderGeometry.new(85,6,Point.new(200,200))
     # print x.get_vertices_for_svg+"\n"
     erb :dg1
 end

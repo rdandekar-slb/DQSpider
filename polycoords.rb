@@ -59,6 +59,28 @@ class RegularPolygon
         end
         return nil
     end
+
+    def getdiagonals()
+        a=Array.new
+        one=0
+        two=0
+        (0..@number_of_sides-1).each do |i|
+            max=0
+            for j in (0..@number_of_sides-1) do
+                if j != i
+                    s=Segment.new(@point[i],@point[j])
+                    # print s.getLength, max
+                    if s.getLength > max
+                        one=i
+                        two=j
+                        max=s.getLength
+                    end
+                end
+            end
+            a.push(Segment.new(@point[one],@point[two]))
+        end
+        return a
+    end
     
 end
 
@@ -71,6 +93,7 @@ class DQSpiderGeometry
         @polygon.calcvertices
         @centrepoint = centrepoint unless centrepoint.nil?
         @polygon.movebyoffset(centrepoint.x,centrepoint.y) unless centrepoint.nil?
+        @longest_diagonal_lines = @polygon.getdiagonals()
     end
 
     def get_vertices_for_svg()
@@ -147,7 +170,12 @@ end
 #     puts
 # end
 
-# puts "-----------------------------------------------------"
-# x=DQSpiderGeometry.new(180,6,Point.new(200,200))
-# print x.get_vertices_for_svg+"\n"
-# puts "-----------------------------------------------------"
+puts "-----------------------------------------------------"
+x=DQSpiderGeometry.new(180,6,Point.new(200,200))
+print x.get_vertices_for_svg+"\n"
+s = x.longest_diagonal_lines
+s.length.times { 
+    |i|
+    print s[i].p1.x.to_s+" "+s[i].p1.y.to_s+ ";"+s[i].p2.x.to_s+" "+s[i].p2.y.to_s+"\n"
+}
+puts "-----------------------------------------------------"
