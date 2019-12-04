@@ -9,4 +9,4 @@ ports:
   - port: 4567
 tasks:
  - command: >
-      gem install sinatra --no-document
+      gem install sinatra --no-document && ruby suff.rb
